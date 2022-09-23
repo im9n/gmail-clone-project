@@ -11,6 +11,8 @@
 
 .sidebar__option > p{
     display: none;
+    font-size: 13px;
+    font-weight: 500
 }
 
 .sidebar__option:hover,

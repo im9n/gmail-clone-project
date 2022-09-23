@@ -1,0 +1,7 @@
+.mail{width: 100%;}
+
+.mail__tools{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px whitesmoke solid;
+}

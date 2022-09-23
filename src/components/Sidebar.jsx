@@ -46,7 +46,7 @@ const Sidebar = () => {
             <PersonIcon />
           </IconButton>
           <IconButton>
-            <PhoneIcon />
+            <DuoIcon />
           </IconButton>
           <IconButton>
             <PhoneIcon />

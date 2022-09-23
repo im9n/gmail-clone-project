@@ -1,0 +1,26 @@
+.emailList__section{
+display: flex; 
+align-items: center;
+border-bottom-width: 0 !important;
+padding: 15px;
+min-width: 200px;
+cursor: pointer;
+}
+
+.emailList__section > h4{
+   font-size: 14px;
+   margin-left: 16px; 
+}
+
+.emailList__section:hover{
+    background-color: whitesmoke;
+    border-width: 3px !important;
+    transition: 200ms ease;
+}
+
+
+.emailList__section--active{
+    background-color: whitesmoke;
+    border-width: 3px !important;
+}
+
