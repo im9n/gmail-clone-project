@@ -28,7 +28,7 @@
 }
 
 .sendmail__send{
-color: #fff;
+color: #fff !important;
  background-color: #3079ed !important;
  text-transform: capitalize !important;
  margin: 15px !important;
@@ -44,6 +44,14 @@ color: #fff;
     flex-direction: column
 }
 
+.sendmail__error{
+    background-color: #fff;
+    color: red;
+    text-align: right;
+    padding: 2px;
+    font-size: 14px;
+}
+
 .sendmail > form > input{
   height: 30px;
   padding: 10px;
@@ -55,3 +63,4 @@ color: #fff;
 .sendmail__message{
     flex: 1;
 }
+
