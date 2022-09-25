@@ -10,12 +10,28 @@ import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 
 import { Checkbox, Icon, IconButton } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Emaillist.css";
 import Section from "./Section";
 import Emailrow from "./Emailrow";
+import { db } from "../firebase";
 
 const Emaillist = () => {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    db.collection("emails")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setEmails(
+          snapshot.docs.map((email) => ({
+            id: email.id,
+            data: email.data(),
+          }))
+        )
+      );
+  }, []);
+
   return (
     <div className="emailList">
       <div className="emailList__settings">
@@ -71,18 +87,149 @@ const Emaillist = () => {
       </div>
 
       <div className="emailList__list">
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <Emailrow
+            key={id}
+            id={id}
+            title={to}
+            subject={subject}
+            description={message}
+            timestamp={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
         <Emailrow
-          title="Twitch"
-          subject="Hello fellow streamer!!!"
-          description="This is a test"
-          time="10:11pm"
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          /><Emailrow
+          title='gmail@gmmail.com'
+          subject='subject'
+          description='description'
+          timestamp='10pm'
         />
         <Emailrow
-          title="Twitch"
-          subject="Hello fellow streamer!!!"
-          description="This is a testThis is a testThis is a testThis is a testvvThis is a testThis is a testvvThis is a testThis is a testvvvvvThis is a testThis is a testThis is a testThis is a testThis is a test"
-          time="10:11pm"
-        />
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          <Emailrow
+            title='gmail@gmmail.com'
+            subject='subject'
+            description='description'
+            timestamp='10pm'
+          />
+          
       </div>
     </div>
   );
