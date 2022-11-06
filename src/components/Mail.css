@@ -57,5 +57,6 @@ color: gray;
 .mail__message > p {
     padding: 10px;
     margin-right: 20px;
+    margin-top: 16px;
     overflow-wrap: break-word;
 }
